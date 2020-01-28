@@ -230,8 +230,9 @@ resource "aws_ecs_service" "service-001" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups = [aws_security_group.allow-http.id]
-    subnets         = [aws_subnet.subnet-001.id]
+    security_groups  = [aws_security_group.allow-http.id]
+    subnets          = [aws_subnet.subnet-001.id]
+    assign_public_ip = true
   }
 
   load_balancer {
